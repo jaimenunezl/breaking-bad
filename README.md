@@ -2,7 +2,7 @@
 
 Project created to learn React
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2081155e-fc14-4fe1-851e-9d0c9935a8fd/deploy-status)](https://app.netlify.com/sites/news-jaimenunezl/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/048e920c-d766-4dc4-88c6-e27b37ef200e/deploy-status)](https://app.netlify.com/sites/breaking-bad-jaimenunezl/deploys)
 
 ## Requirement
 
