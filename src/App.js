@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const Phrase = ({ phrase }) => {
+  return (
+    <div className="frase">
+      <h1>{phrase.quote}</h1>
+      <p>{phrase.author}</p>
+    </div>
+  );
+};
 
 function App() {
+  const initialState = {
+    author: "",
+    quote: ""
+  };
+
+  const [phrase, setPhrase] = useState(initialState);
+
+  const getData = async () => {
+    const response = await axios.get(
+      "https://breaking-bad-quotes.herokuapp.com/v1/quotes"
+    );
+    setPhrase(response.data[0]);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="contenedor">
+      <Phrase phrase={phrase} />
+      <button onClick={getData}>Get new phrase</button>
     </div>
   );
 }
